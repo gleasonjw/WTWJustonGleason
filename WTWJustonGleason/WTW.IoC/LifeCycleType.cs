@@ -1,7 +1,7 @@
 ﻿
 namespace WTW.IoC
 {
-    public enum LifeCycleType
+    public enum LifecycleType
     {
         Transient = 0,
         Singleton
