@@ -23,5 +23,15 @@ namespace WTW.Ioc.Test
             var calc = container.Resolve<ICalculator>();
             Assert.IsNotNull(calc);
         }
+
+        [Test]
+        public void SimpleTypeResolutionWithParameter()
+        {
+            IWTWContainer container = new WTWContainer();
+            container.Register<ICalculator, Calculator>();
+
+            var calc = container.Resolve(typeof(ICalculator));
+            Assert.IsNotNull(calc);
+        }
     }
 }
