@@ -18,7 +18,7 @@ namespace WTW.Web.API.App_Start
         {
             if (container == null)
             {
-                throw new ArgumentNullException("container");
+                throw new ArgumentNullException(nameof(container));
             }
 
             _container = container;

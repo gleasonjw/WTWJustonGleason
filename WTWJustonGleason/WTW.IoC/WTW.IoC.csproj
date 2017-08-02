@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="Exceptions\ResolutionFailedException.cs" />
     <Compile Include="IWTWContainer.cs" />
-    <Compile Include="LifecycleType.cs" />
+    <Compile Include="LifeTime\LifeTimeManager.cs" />
+    <Compile Include="LifeTime\SingletonLifeTimeManager.cs" />
+    <Compile Include="LifeTime\TransientLifeTimeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WTWContainer.cs" />
   </ItemGroup>

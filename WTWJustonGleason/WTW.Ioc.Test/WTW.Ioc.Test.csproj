@@ -46,8 +46,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestHelpers\EmailService.cs" />
     <Compile Include="TestHelpers\Calculator.cs" />
     <Compile Include="TestHelpers\ICalculator.cs" />
+    <Compile Include="TestHelpers\IDataService.cs" />
+    <Compile Include="TestHelpers\IEmailService.cs" />
+    <Compile Include="TestHelpers\IUsersController.cs" />
+    <Compile Include="TestHelpers\UsersController.cs" />
     <Compile Include="WTWContainerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

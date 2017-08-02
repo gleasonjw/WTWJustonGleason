@@ -3,16 +3,28 @@ using System.Collections.Generic;
 using System.Reflection;
 using WTW.IoC.Exceptions;
 using System.Linq;
+using WTW.IoC.LifeTime;
 
 namespace WTW.IoC
 {
     public class WTWContainer : IWTWContainer
     {
-        private Dictionary<Type, Type> _registeredTypes = new Dictionary<Type, Type>();
+        private Dictionary<Type, LifeTimeManager> _registeredTypeManagers = new Dictionary<Type, LifeTimeManager>();
 
-        public void Register<TFrom, TTo>(LifecycleType lifecycle = LifecycleType.Transient)
+        public void Register<TFrom, TTo>()
         {
-            _registeredTypes.Add(typeof(TFrom), typeof(TTo));
+            Register<TFrom, TTo>(new TransientLifeTimeManager());
+        }
+
+        public void Register<TFrom, TTo>(LifeTimeManager lifeTimeMgr)
+        {
+            if (lifeTimeMgr == null)
+            {
+                throw new ArgumentNullException(nameof(lifeTimeMgr));
+            }
+            lifeTimeMgr.DataType = typeof(TTo);
+
+            _registeredTypeManagers.Add(typeof(TFrom), lifeTimeMgr);
         }
 
         public object Resolve<TFrom>()
@@ -30,26 +42,31 @@ namespace WTW.IoC
         public object Resolve(Type fromType)
         {
             object returnValue = null;
-            if (_registeredTypes.ContainsKey(fromType))
+            if (_registeredTypeManagers.ContainsKey(fromType))
             {
-                Type toType = _registeredTypes[fromType];
+                LifeTimeManager lifeTimeMgr = _registeredTypeManagers[fromType];
+                returnValue = lifeTimeMgr.GetObject();
 
-                // Use the constructor with the least number of parameters to improve chances of success.
-                ConstructorInfo[] constructors = toType.GetConstructors()
-                    .OrderBy(c => c.GetParameters().Count())
-                    .ToArray();
-                ConstructorInfo ctorInfo = constructors.First();
-                
-                ParameterInfo[] parameters = ctorInfo.GetParameters();
-                List<object> resolvedParameters = new List<object>();
-                foreach(ParameterInfo paramInfo in parameters)
+                if (returnValue == null)
                 {
-                    // Use recursion to resolve the parameter.
-                    object resolvedParam = Resolve(paramInfo.ParameterType);
-                    resolvedParameters.Add(resolvedParam);
-                }
+                    // Use the constructor with the least number of parameters to improve chances of success.
+                    ConstructorInfo[] constructors = lifeTimeMgr.DataType.GetConstructors()
+                        .OrderBy(c => c.GetParameters().Count())
+                        .ToArray();
+                    ConstructorInfo ctorInfo = constructors.First();
 
-                returnValue = ctorInfo.Invoke(resolvedParameters.ToArray());
+                    ParameterInfo[] parameters = ctorInfo.GetParameters();
+                    List<object> resolvedParameters = new List<object>();
+                    foreach (ParameterInfo paramInfo in parameters)
+                    {
+                        // Use recursion to resolve the parameter.
+                        object resolvedParam = Resolve(paramInfo.ParameterType);
+                        resolvedParameters.Add(resolvedParam);
+                    }
+
+                    returnValue = ctorInfo.Invoke(resolvedParameters.ToArray());
+                    lifeTimeMgr.SetObject(returnValue);
+                }
             }
             else
             {
@@ -59,6 +76,7 @@ namespace WTW.IoC
             return returnValue;
         }
 
+        #region Required for the WebAPI dependency resolver.
         public IEnumerable<object> ResolveAll(Type fromType)
         {
             throw new NotImplementedException();
@@ -73,5 +91,6 @@ namespace WTW.IoC
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }

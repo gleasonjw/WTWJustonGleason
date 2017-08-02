@@ -7,5 +7,10 @@ namespace WTW.Ioc.Test.TestHelpers
         {
 
         }
+
+        public UsersController(ICalculator calulator, IEmailService emailService, IDataService dataService)
+        {
+
+        }
     }
 }
