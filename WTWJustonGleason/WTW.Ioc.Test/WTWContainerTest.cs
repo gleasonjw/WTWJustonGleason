@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using WTW.Ioc.Test.TestHelpers;
+using WTW.IoC;
 
 namespace WTW.Ioc.Test
 {
@@ -6,8 +8,20 @@ namespace WTW.Ioc.Test
     public class WTWContainerTest
     {
         [Test]
-        public void TestMethod1()
+        public void SimpleTypeRegistration()
         {
+            IWTWContainer container = new WTWContainer();
+            container.Register<ICalculator, Calculator>();
+        }
+
+        [Test]
+        public void SimpleTypeResolution()
+        {
+            IWTWContainer container = new WTWContainer();
+            container.Register<ICalculator, Calculator>();
+
+            var calc = container.Resolve<ICalculator>();
+            Assert.IsNotNull(calc);
         }
     }
 }

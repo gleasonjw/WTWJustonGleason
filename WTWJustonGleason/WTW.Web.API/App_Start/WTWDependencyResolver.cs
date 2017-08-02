@@ -16,7 +16,12 @@ namespace WTW.Web.API.App_Start
 
         public WTWDependencyResolver(IWTWContainer container)
         {
-            _container = container ?? throw new ArgumentNullException("container");
+            if (container == null)
+            {
+                throw new ArgumentNullException("container");
+            }
+
+            _container = container;
         }
 
         public IDependencyScope BeginScope()
