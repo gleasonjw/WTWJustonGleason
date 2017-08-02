@@ -2,8 +2,11 @@
 using WTW.IoC;
 using WTW.Web.API.DataAccess;
 
-namespace WTW.Web.API.App_Start
+namespace WTW.Web.API
 {
+    /// <summary>
+    /// Static class to configure the IoC container used for dependency injection.
+    /// </summary>
     public static class IoCConfig
     {
         public static void Register(HttpConfiguration config)

@@ -4,7 +4,7 @@ using System.Web.Http.Dependencies;
 using WTW.IoC;
 using WTW.IoC.Exceptions;
 
-namespace WTW.Web.API.App_Start
+namespace WTW.Web.API
 {
     /// <summary>
     /// The WTWDependencyResolver class is a wrapper around WTWContainer as required for dependency injection in WebAPI controllers.

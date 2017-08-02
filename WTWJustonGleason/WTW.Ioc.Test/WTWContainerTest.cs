@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using WTW.Ioc.Test.TestHelpers;
 using WTW.IoC;
+using WTW.IoC.LifeTime;
 
 namespace WTW.Ioc.Test
 {
@@ -72,7 +73,7 @@ namespace WTW.Ioc.Test
         public void TestTransientLifecycle()
         {
             IWTWContainer container = new WTWContainer();
-            container.Register<ICalculator, Calculator>(LifecycleType.Transient);
+            container.Register<ICalculator, Calculator>(new TransientLifeTimeManager());
 
             var calc1 = container.Resolve<ICalculator>();
             var calc2 = container.Resolve<ICalculator>();
@@ -96,7 +97,7 @@ namespace WTW.Ioc.Test
         public void TestSingletonLifecycle()
         {
             IWTWContainer container = new WTWContainer();
-            container.Register<ICalculator, Calculator>(LifecycleType.Singleton);
+            container.Register<ICalculator, Calculator>(new SingletonLifeTimeManager());
 
             var calc1 = container.Resolve<ICalculator>();
             var calc2 = container.Resolve<ICalculator>();

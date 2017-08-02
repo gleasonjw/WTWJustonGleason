@@ -7,6 +7,9 @@ using WTW.IoC.LifeTime;
 
 namespace WTW.IoC
 {
+    /// <summary>
+    /// Simple IoC container built for WTW code challenge.
+    /// </summary>
     public class WTWContainer : IWTWContainer
     {
         private Dictionary<Type, LifeTimeManager> _registeredTypeManagers = new Dictionary<Type, LifeTimeManager>();
