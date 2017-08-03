@@ -1,4 +1,7 @@
-﻿using System.Web.Http;
+﻿using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace WTW.Web.API
 {
@@ -10,6 +13,9 @@ namespace WTW.Web.API
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            config.EnableCors(new EnableCorsAttribute("*", "*", "GET"));
+            config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

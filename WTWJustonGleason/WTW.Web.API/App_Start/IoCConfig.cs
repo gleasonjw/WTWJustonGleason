@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using WTW.IoC;
+using WTW.Web.API.Controllers;
 using WTW.Web.API.DataAccess;
 
 namespace WTW.Web.API
@@ -14,7 +15,8 @@ namespace WTW.Web.API
             var container = new WTWContainer();
 
             // Register types.
-            container.Register<IResumeRepository, ResumeRepositoryHardCoded>();
+            container.Register<ResumeController, ResumeController>();
+            container.Register<IResumeRepository, ResumeRepositoryXml>();
 
             // Set the DependencyResolver to enable dependency injection in WebAPI controllers.
             config.DependencyResolver = new WTWDependencyResolver(container);

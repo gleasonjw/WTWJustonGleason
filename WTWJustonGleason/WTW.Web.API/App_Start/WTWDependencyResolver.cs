@@ -26,8 +26,8 @@ namespace WTW.Web.API
 
         public IDependencyScope BeginScope()
         {
-            var child = _container.CreateChildContainer();
-            return new WTWDependencyResolver(child);
+            // Note: For this simple implementation, I didn't add support for nested containers.
+            return new WTWDependencyResolver(_container);
         }
 
         public object GetService(Type serviceType)
@@ -46,7 +46,11 @@ namespace WTW.Web.API
         {
             try
             {
-                return _container.ResolveAll(serviceType);
+                // Note: For this simple implementation, the container just resolves the first matching object.
+                List<object> returnValue = new List<object>();
+                returnValue.Add(_container.Resolve(serviceType));
+
+                return returnValue;
             }
             catch (ResolutionFailedException)
             {

@@ -80,19 +80,10 @@ namespace WTW.IoC
         }
 
         #region Required for the WebAPI dependency resolver.
-        public IEnumerable<object> ResolveAll(Type fromType)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IWTWContainer CreateChildContainer()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Dispose()
         {
-            throw new NotImplementedException();
+            // Note: This simple implementation doesn't require disposing of anything. More complex versions may have resources
+            // that need to be released.
         }
         #endregion
     }

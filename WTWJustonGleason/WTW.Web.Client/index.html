@@ -2,9 +2,27 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Juston Gleason Resume</title>
+    <link rel="stylesheet" href="Content/bootstrap/bootstrap.css" />
+    <script src="Scripts/jquery/jquery-3.1.1.min.js"></script>
+    <script src="Scripts//bootstrap/bootstrap.min.js"></script>
+    <script src="Scripts/app/ResumeService.js"></script>
 </head>
 <body>
-    
+    <article>
+        <section>
+            <h2>Juston Gleason</h2>
+        </section>
+        <section>
+            <h3>Resume (JSON Data) </h3><div id="messageSection"></div>
+            <pre id="resumeDataSection" />
+        </section>
+    </article>
+
+    <script>
+        $(document).ready(function () {
+            window.ResumeService.displayResume('#resumeDataSection', '#messageSection');
+        });
+    </script>
 </body>
 </html>

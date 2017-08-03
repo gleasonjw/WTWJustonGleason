@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resume>
+  <FirstName>Juston</FirstName>
+  <LastName>Gleason</LastName>
+  <EducationHistory>
+    <Education>
+      <InstitutionName>Brigham Young University</InstitutionName>
+      <Degree>B.S. Computer Science</Degree>
+    </Education>
+    <Education>
+      <InstitutionName>Clackamas Community College </InstitutionName>
+      <Degree>A.A. General Studies</Degree>
+    </Education>
+  </EducationHistory>
+  <EmploymentHistory>
+    <Employment>
+      <CompanyName>CorVel</CompanyName>
+      <JobTitle>Software Engineer</JobTitle>
+      <JobDuties>
+        Developed both front-end UI (iOS and Android) and back-end Rest services and stored procedures for CorVel’s primary worker’s comp mobile application. 
+        Built a web application using Angular and TypeScript to automate internal testing.
+      </JobDuties>
+      <SkillsUsed>
+        C#, Xamarin, iOS, Android, Web API, REST, TypeScript, AngularJS and Angular (2.0), SQL, PetaPoco, Git, TFS
+      </SkillsUsed>
+    </Employment>
+    <Employment>
+      <CompanyName>Panasonic - Sanyo Solar</CompanyName>
+      <JobTitle>Software Engineer</JobTitle>
+      <JobDuties>
+        Worked with manufacturing engineers to create tools for analysis and reporting.
+        Designed and built systems for managing work orders and inventory.
+        Documented and updated existing systems for improved maintainability.
+      </JobDuties>
+      <SkillsUsed>
+        VB.NET, SQL, Entity Framework, WCF, ASP.net MVC, jQuery, SSRS, SourceSafe
+      </SkillsUsed>
+    </Employment>
+    <Employment>
+      <CompanyName>Oregon Department of Forestry</CompanyName>
+      <JobTitle>Developer / Analyst</JobTitle>
+      <JobDuties>
+        Migrated a Mainframe financial system to .NET while improving business processes and aligning the department with its technology plan.
+        Trained other developers and assisted them in learning new technologies.
+        Maintained a SharePoint site for our application development team.
+      </JobDuties>
+      <SkillsUsed>
+        C#, SQL, Entity Framework, WPF, WCF, SSRS, SubVersion, TFS, SharePoint
+      </SkillsUsed>
+    </Employment>
+    <Employment>
+      <CompanyName>Oregon Department of Transportation</CompanyName>
+      <JobTitle>Developer / Analyst</JobTitle>
+      <JobDuties>
+        Supported existing websites and tools (including TripCheck.com, 511 and others).
+        Developed internal web and client-server applications to support the business unit.
+        Worked with team members, vendors and contractors to coordinate deployments of large-scale n-tier systems.
+        Managed automated monitoring and alerts to ensure timely flow of data between many internal and public-facing systems.
+      </JobDuties>
+      <SkillsUsed>
+        C#, ASP.net, Classic ASP, SQL, SSRS, WCF, web services, XML, VXML, JavaScript, HTML, VB.NET, VB6, Crystal Reports
+      </SkillsUsed>
+    </Employment>
+  </EmploymentHistory>
+</Resume>

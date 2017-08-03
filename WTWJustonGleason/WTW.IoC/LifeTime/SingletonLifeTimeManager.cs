@@ -8,12 +8,12 @@ namespace WTW.IoC.LifeTime
     {
         private object _storedObject = null;
 
-        internal override object GetObject()
+        public override object GetObject()
         {
             return _storedObject;
         }
 
-        internal override void SetObject(object value)
+        public override void SetObject(object value)
         {
             _storedObject = value;
         }

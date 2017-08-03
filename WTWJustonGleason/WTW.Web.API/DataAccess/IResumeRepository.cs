@@ -4,6 +4,6 @@ namespace WTW.Web.API.DataAccess
 {
     public interface IResumeRepository
     {
-        Resume GetResumeData(string applicantFirstName, string applicantLastName);
+        Resume GetResumeData(string firstName, string lastName);
     }
 }

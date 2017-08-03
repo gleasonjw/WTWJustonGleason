@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using WTW.IoC.LifeTime;
 
 namespace WTW.IoC
@@ -15,8 +14,6 @@ namespace WTW.IoC
 
         #region Required for the WebAPI dependency resolver.
         object Resolve(Type fromType);
-        IEnumerable<object> ResolveAll(Type fromType);
-        IWTWContainer CreateChildContainer();
         #endregion
     }
 }

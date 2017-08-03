@@ -8,7 +8,7 @@ namespace WTW.Web.API.DataAccess
     /// </summary>
     public class ResumeRepositoryAzure : IResumeRepository
     {
-        public Resume GetResumeData(string applicantFirstName, string applicantLastName)
+        public Resume GetResumeData(string firstName, string lastName)
         {
             throw new NotImplementedException();
         }

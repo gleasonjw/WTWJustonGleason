@@ -8,7 +8,7 @@ namespace WTW.Web.API
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            // Wire up the dependency resolver for dependency injection.
+            // Wire up the dependency resolver for dependency injection.            
             GlobalConfiguration.Configure(IoCConfig.Register);
         }
     }

@@ -7,9 +7,9 @@ namespace WTW.IoC.LifeTime
     /// </summary>
     public abstract class LifeTimeManager
     {
-        internal Type DataType { get; set; }
+        public Type DataType { get; set; }
 
-        internal abstract void SetObject(object value);
-        internal abstract object GetObject();
+        public abstract void SetObject(object value);
+        public abstract object GetObject();
     }
 }
