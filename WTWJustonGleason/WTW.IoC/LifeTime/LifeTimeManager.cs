@@ -9,7 +9,14 @@ namespace WTW.IoC.LifeTime
     {
         public Type DataType { get; set; }
 
-        public abstract void SetObject(object value);
-        public abstract object GetObject();
+        public virtual void SetObject(object value)
+        {
+
+        }
+
+        public virtual object GetObject()
+        {
+            return null;
+        }
     }
 }
